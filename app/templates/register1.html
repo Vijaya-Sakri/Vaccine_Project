@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    {% comment %} <form method="POST" action="/login/">
+        {% csrf_token %}
+          <div class="mb-3">
+            <h1 class="text-center mt-5">LOG IN PAGE</h1>
+            <label for="exampleInputEmail1" class=""><h1>Username</h1></label>
+            <input type="text" placeholder="user name" class="" aria-describedby="emailHelp" name="uname1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class=""><h1>Password</h1></label>
+            <input type="password" class="ms-4 w-50"style="height:35px; border:1px solid black;" id="exampleInputPassword1" name="password1">
+          </div> <br>
+          <button type="submit" class="btn btn-primary">LOGIN</button>
+        </div>
+        </form> {% endcomment %}
+         <!-- Section: Design Block -->
+    <section class="background-radial-gradient overflow-hidden">
+      <style>
+        .background-radial-gradient {
+          background-color: hsl(218, 41%, 15%);
+          background-image: radial-gradient(650px circle at 0% 0%, hsl(218, 41%, 35%) 15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%, hsl(218, 41%, 19%) 80%, transparent 100%), radial-gradient(1250px circle at 100% 100%, hsl(218, 41%, 45%) 15%, hsl(218, 41%, 30%) 35%, hsl(218, 41%, 20%) 75%, hsl(218, 41%, 19%) 80%, transparent 100%);
+        }
+        
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+        
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#44006b, #ad1fff);
+          overflow: hidden;
+        }
+        
+        .bg-glass {
+          background-color: hsla(0, 0%, 100%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+        
+      </style>
+
+      <div class="container px-4 pt-5 pb-3 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="container col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+            <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+            <div class="card bg-glass">
+              <div class="card-body px-4 py-3 px-md-5">
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}}">
+                    <strong class="fs-3">{{message}}</strong> 
+                    <a href="#" class="fs-3 close" style="text-decoration: none;"data-dismiss="alert" aria-label="close"><h4 class="fs-1 text-dark"><b>&times;</b></h4></a>
+                  </div>
+                {% endfor %}
+                <form action="/register/" method="POST">
+                    
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                {% csrf_token %}
+                
+                  <!-- Email input -->
+                  <h2 class="text-center fs-2">REGISTER</h2> <hr>
+		<p class="fs-3">Create your account. It's free and only takes a minute.</p>
+        <div class="form-group">
+			<div class="row">
+				<div class="col"><input type="text" class="fs-4 form-control" name="fname" placeholder="First Name" required="required"></div>
+				<div class="col"><input type="text" class="form-control fs-4" name="lname" placeholder="Last Name" required="required"></div>
+			</div>        	
+        </div>
+        <div class="form-group">
+      <input type="text" class="form-control fs-4" name="uname" placeholder="User Name" required="required">
+        </div>
+        <div class="form-group">
+        	<input type="email" class="fs-4 form-control" name="email" placeholder="Email" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="fs-4 form-control" name="password" placeholder="Password" required="required">
+        </div>
+		<div class="form-group">
+            <input type="password" class="fs-4 form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+        </div>  
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block fs-3">Register Now</button>
+        </div>
+                  <!-- Register buttons -->
+                  <div class="text-center">
+                    <p class="fs-4">or sign up with:</p>
+                    <button type="button" class="btn btn-link btn-floating mx-1"><i class="bi bi-facebook fs-1"></i></button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1"><i class="bi bi-google fs-1"></i></button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1"><i class="bi bi-twitter fs-1"></i></button>
+
+                    <button type="button" class="btn btn-link btn-floating mx-1"><i class="bi bi-instagram fs-1 "></i></button>
+                  </div>
+                </form>
+               <p class="text-center fs-3"> <a href="/login/" style="text-decoration: none;">Already have an account?</a></p>
+              </div>
+            </div>
+          </div>
+    </section>
+    <!-- Section: Design Block -->
+
+      </div>
+</body>
+</html>

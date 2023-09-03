@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/jquery.min.js"></script>
+</head>
+<body>
+  <h2 class="text-center text-light pb-3 fixed-top bg-secondary" >Add Vaccine Details</h2>
+    <form class="container w-75 pt-4 mt-5" action="/details/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="form-group pb-3">
+          {% comment %} <label for="name"><h5>Vaccine name</h5></label> {% endcomment %}
+          <input type="text" class="form-control" id="name" name="vname" placeholder="vaccine name" onfocus="this.placeholder=''" onblur="this.placeholder='vaccine name'">
+        </div> 
+        <div class="form-group  pb-3">
+          {% comment %} <label for="age"><h5>Recommended Age</h5></label> {% endcomment %}
+          <select class="form-control" id="age" name="age">
+            <option>recommended age</option>
+            <option>0-2 months</option>
+            <option>4 months</option>
+            <option>6 months</option>
+            <option>12 months</option>
+            <option>18 months</option>
+            <option>23 months</option>
+          </select>
+        </div>
+        <div class="form-group  pb-3">
+            {% comment %} <label for="desc"><h5>Description</h5></label> {% endcomment %}
+            <textarea class="form-control" id="desc" name="desc" rows="3"
+            ></textarea>
+          </div> 
+        <div class="form-group  pb-3">
+          {% comment %} <label for="ingredients"><h5>Ingredients</h5></label> {% endcomment %}
+          <textarea class="form-control" id="ingredients" name="ingredients" rows="3"
+          placeholder="ingredients" onfocus="this.placeholder=''" onblur="this.placeholder='ingredients'"></textarea>
+        </div> 
+        <div class="form-group  pb-3">
+            {% comment %} <label for="sideeffects"><h5>Side Effects</h5></label> {% endcomment %}
+            <textarea class="form-control" id="sideeffects" name="sideeffects" rows="3"
+            placeholder="Side Effects" onfocus="this.placeholder=''" onblur="this.placeholder='Side Effects'"></textarea>
+          </div>
+          <div class="form-group"> 
+            {% comment %} <label for="image"><h5>Image</h5></label> {% endcomment %}
+            <input type="file" class="form-control" id="myFile" name="image">
+          </div>  <br>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-success fs-4">Submit</button>
+          </div>
+      </form>
+     
+      </body>
+</html>
